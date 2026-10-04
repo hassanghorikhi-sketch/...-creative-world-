@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Creative World 🎨</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#fff0f6,#eee5ff);
+  color:#333;
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:white;
+  padding:15px;
+  text-align:center;
+  box-shadow:0 2px 10px #0002;
+}
+
+header h1{
+  color:#8b45d9;
+  margin-bottom:12px;
+}
+
+nav{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+nav a{
+  text-decoration:none;
+  color:white;
+  background:#8b45d9;
+  padding:9px 13px;
+  border-radius:20px;
+}
+
+section{
+  min-height:100vh;
+  padding:70px 20px;
+  text-align:center;
+}
+
+.hero{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-icon{
+  font-size:100px;
+  margin-bottom:20px;
+}
+
+h2{
+  color:#8b45d9;
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:18px;
+  margin-bottom:25px;
+}
+
+.btn{
+  border:none;
+  background:#8b45d9;
+  color:white;
+  padding:13px 22px;
+  border-radius:25px;
+  font-size:16px;
+  margin:6px;
+  cursor:pointer;
+}
+
+.btn:active{
+  transform:scale(.94);
+}
+
+.cards{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:18px;
+  margin-top:30px;
+}
+
+.card{
+  background:white;
+  width:280px;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 5px 18px #0002;
+}
+
+.card h3{
+  color:#e75480;
+  margin-bottom:12px;
+}
+
+.gallery{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:15px;
+  margin-top:30px;
+}
+
+.art{
+  width:130px;
+  height:130px;
+  background:white;
+  border-radius:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:60px;
+  box-shadow:0 5px 15px #0002;
+}
+
+#game{
+  display:none;
+  background:white;
+  max-width:400px;
+  margin:30px auto;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 5px 15px #0002;
+}
+
+#gameIcon{
+  font-size:70px;
+  margin:20px;
+}
+
+#points{
+  font-size:25px;
+  color:#8b45d9;
+  margin:15px;
+}
+
+input,textarea{
+  width:90%;
+  max-width:500px;
+  display:block;
+  margin:10px auto;
+  padding:14px;
+  border:2px solid #ddd;
+  border-radius:12px;
+  font-size:16px;
+}
+
+textarea{
+  height:130px;
+}
+
+footer{
+  background:#30203d;
+  color:white;
+  padding:25px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+
+<header>
+
+<h1>🎨 Creative World</h1>
+
+<nav>
+<a href="#home">🏠 Home</a>
+<a href="#about">👤 About</a>
+<a href="#create">🎨 Create</a>
+<a href="#gallery">🖼️ Gallery</a>
+<a href="#contact">📩 Contact</a>
+</nav>
+
+</header>
+
+
+<!-- HOME -->
+
+<section id="home" class="hero">
+
+<div class="hero-icon">🎨</div>
+
+<h2>Welcome to Creative World!</h2>
+
+<p>
+Imagine something amazing and create your own world.
+</p>
+
+<button class="btn" onclick="openCreate()">
+Start Creating ✨
+</button>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>👤 About Us</h2>
+
+<p>
+Creative World is a fun website where you can
+explore ideas, play a mini game and enjoy colorful
+creative content.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<h3>💡 Ideas</h3>
+<p>Discover new and interesting ideas.</p>
+</div>
+
+<div class="card">
+<h3>🎨 Art</h3>
+<p>Enjoy colorful creative artwork.</p>
+</div>
+
+<div class="card">
+<h3>⭐ Fun</h3>
+<p>Play games and have some fun.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CREATE -->
+
+<section id="create">
+
+<h2>🎨 Creative Zone</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🎯 Tap Challenge</h3>
+
+<p>
+Tap the button and collect points!
+</p>
+
+<button class="btn" onclick="startGame()">
+Start Game 🎮
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>✨ Magic Button</h3>
+
+<p>
+Press the button for a surprise.
+</p>
+
+<button class="btn" onclick="magic()">
+Magic ✨
+</button>
+
+</div>
+
+</div>
+
+
+<!-- GAME -->
+
+<div id="game">
+
+<h3>🎮 Tap Challenge</h3>
+
+<div id="gameIcon">⭐</div>
+
+<div id="points">
+Points: 0
+</div>
+
+<button class="btn" onclick="tapPoint()">
+TAP ⭐
+</button>
+
+<br>
+
+<button class="btn" onclick="closeGame()">
+Close Game
+</button>
+
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2>🖼️ My Gallery</h2>
+
+<div class="gallery">
+
+<div class="art">🌸</div>
+<div class="art">🌈</div>
+<div class="art">🦋</div>
+<div class="art">🌙</div>
+<div class="art">⭐</div>
+<div class="art">🎨</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>📩 Contact Me</h2>
+
+<p>
+Message mujhe WhatsApp par bhejo 💚
+</p>
+
+<input
+id="name"
+type="text"
+placeholder="Your Name">
+
+<input
+id="email"
+type="email"
+placeholder="Your Email">
+
+<textarea
+id="message"
+placeholder="Write your message..."></textarea>
+
+<button class="btn" onclick="sendWhatsApp()">
+💚 Send to WhatsApp
+</button>
+
+</section>
+
+
+<footer>
+
+<p>🎨 Creative World</p>
+<p>Made with ❤️</p>
+
+</footer>
+
+
+<script>
+
+let points = 0;
+
+
+/* START CREATING */
+
+function openCreate(){
+
+  document.getElementById("create").scrollIntoView({
+    behavior:"smooth"
+  });
+
+}
+
+
+/* START GAME */
+
+function startGame(){
+
+  points = 0;
+
+  document.getElementById("points").innerText =
+    "Points: 0";
+
+  document.getElementById("game").style.display =
+    "block";
+
+}
+
+
+/* TAP POINT */
+
+function tapPoint(){
+
+  points++;
+
+  document.getElementById("points").innerText =
+    "Points: " + points;
+
+}
+
+
+/* CLOSE GAME */
+
+function closeGame(){
+
+  document.getElementById("game").style.display =
+    "none";
+
+}
+
+
+/* MAGIC */
+
+function magic(){
+
+  alert("✨ Magic! Keep creating amazing things! 🎨");
+
+}
+
+
+/* WHATSAPP */
+
+function sendWhatsApp(){
+
+  let name =
+    document.getElementById("name").value.trim();
+
+  let email =
+    document.getElementById("email").value.trim();
+
+  let message =
+    document.getElementById("message").value.trim();
+
+
+  if(name === "" || message === ""){
+
+    alert("Please enter your name and message.");
+
+    return;
+
+  }
+
+
+  let phone = "923122330666";
+
+
+  let text =
+    "Hello!%0A%0A" +
+    "Name: " + encodeURIComponent(name) +
+    "%0AEmail: " + encodeURIComponent(email) +
+    "%0AMessage: " + encodeURIComponent(message);
+
+
+  let url =
+    "https://wa.me/" + phone + "?text=" + text;
+
+
+  window.location.href = url;
+
+}
+
+</script>
+
+</body>
+  </html>
